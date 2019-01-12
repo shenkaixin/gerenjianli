@@ -1,0 +1,221 @@
+*{
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+.hidden{
+    display: none;
+}
+@img:'../images/';
+.w(){
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    overflow: hidden;
+}
+html,body{
+    .w();
+}
+// loading块
+.loadingBox{
+    .w();
+    background: #111;
+    color: #fcfcfc;
+    z-index: 30;
+    transition: all .8s 1s;// 等待1s后
+    header{
+        position: relative;
+        top:25%;
+        text-align: center;
+        h2{
+            font-size: .6rem;
+        }
+        h3{
+            font-size: .5rem;
+        }
+    }
+    .progressBox{
+        width: 80%;
+        height: .4rem;
+        position: relative;
+        top:40%;
+        background: #fff;
+        border-radius: .1rem;
+        margin: auto;
+        overflow: hidden;
+        .progressBar{
+            width: 0;
+            height: .4rem;
+            transition: width 1s;
+            background: linear-gradient(45deg,#6faa6d 0%,#6faa6d 25%,#77c570 25%,#77c570 50%,#6faa6d 50%,#6faa6d 75%,#77c570 75%,#77c570 100%);
+            background-size: .4rem .4rem;
+        }
+    }
+}
+// 接电话块
+.phoneBox{
+    z-index: 25;
+    transition: all 1s;
+    .w();
+    background: url('@{img}phone-bg.jpg') center center;
+    background-size: cover;
+    header{
+        position: relative;
+        top: .5rem;
+        color: #fcfcfc;
+        text-align: center;
+        h2{
+            font-size: .7rem;
+        }
+        h3{
+            font-size: .23rem;
+            padding: .5rem 0 .8rem 0;
+        }
+        h4{
+            font-size: .6rem;
+        }
+    }
+    .listenBox{
+        width: 5.2rem;
+        height: 3.6rem;
+        position: absolute;
+        bottom: .3rem;
+        left: 50%;
+        margin-left: -2.6rem;
+        background: url('@{img}phone-listen.png') center center;
+        background-size: contain;
+        .listenBtn{
+            width: 1.6rem;
+            height: 1.6rem;
+            position: absolute;
+            right: -.075rem;
+            bottom: .47rem;
+            border: .01rem  solid rgb(35, 255, 35);
+            border-radius: 50%;
+            animation: move 1s linear infinite;
+        }
+    }
+    .no_listenBox{
+        position: absolute;
+        transform: translateY(7rem);
+        transition: all 1s;
+        bottom: .3rem;
+        left: 50%;
+        margin-left: -2.6rem;
+        width: 5.2rem;
+        height: 6.6rem;
+        background: url('@{img}phone-key.png') center center;
+        background-size: contain;
+        .no_listenBtn{
+            width: 1.8rem;
+            height: 1.8rem;
+            position: absolute;
+            bottom: .3rem;
+            left: 50%;
+            margin-left: -.9rem;
+        }
+    }
+    @keyframes move{
+        0%{
+            transform: scale(1.2);
+        }
+        100%{
+            transform: scale(0.8);
+        }
+    }
+}
+// 微信聊天板块
+.msgBox{
+    .w();
+    font-size:.26rem;
+    background: #eaeaea;
+    ul{
+        transition: all .5s;
+        li{
+            overflow: hidden;
+            margin-top: .4rem;
+            transform: translateY(1rem);
+            opacity: 0;
+            transition: all .5s;
+            div{
+                max-width: 3.6rem;
+                padding: .25rem;
+                float: left;
+                border: .02rem solid #cacaca;
+                position: relative;
+                left: 1.25rem;
+                border-radius: .1rem;
+                background: #fff;
+                img{
+                    width: .82rem;
+                    height: .82rem;
+                    position: absolute;
+                    left: -1rem;
+                    top: 0;
+                    border-radius: 50%;
+                    overflow: hidden;
+                }
+                &::before{
+                    content: '';
+                    width: .1rem;
+                    height: .2rem;
+                    display: block;
+                    background: url('@{img}message-arrow1.png') no-repeat center center;
+                    position: absolute;
+                    top:.2rem;
+                    left: -.1rem;
+                    background-size: contain;
+                }
+            }
+        }
+        li.right{
+            div{
+                float: right;
+                border-color: #96b474;
+                right: 1.25rem;
+                left: auto;
+                background: #a0e55f;
+                img{
+                    left: auto;
+                    right: -1rem;
+                }
+                &::before{
+                    background: url('@{img}message-arrow2.png') no-repeat center center;
+                    top:.2rem;
+                    left: auto;
+                    right:-.1rem;
+                    background-size: contain;
+                }
+            }
+        }
+    }
+    .keyBoard{
+        width: 6.4rem;
+        height: 5.16rem;
+        background: url('@{img}message-keyboard.png') no-repeat center center;
+        background-size: contain;
+        position: absolute;
+        bottom: 0;
+        transform: translateY(4.1rem);
+        transition: all 0.8s 1s;
+        .textBox{
+            width: 4rem;
+            height: .4rem;
+            line-height: .4rem;
+            font-size: .25rem;
+            position: absolute;
+            top:.35rem;
+            left: .9rem;
+        }
+        .btn{
+            width: 1.47rem;
+            height: .74rem;
+            background: url('@{img}message-chatBtn.png') no-repeat center center;
+            position: absolute;
+            right: .1rem;
+            bottom: .6rem;
+            border-radius: .1rem;
+            background-size: contain;
+        }
+    }
+}
